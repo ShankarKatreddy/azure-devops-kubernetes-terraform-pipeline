@@ -9,25 +9,25 @@ stages:
   jobs:
   - job: firstjob
     steps:
-    -bash: echo Build firstjob
+    - bash: echo Build firstjob
   - job: secondjob
     steps:
-    -bash: echo Build secondjob
+    - bash: echo Build secondjob
 
 - stage: DevDeploy
   jobs:
   - job: DevDeployjob
     steps:
-    -bash: echo DevDeployjob
+    - bash: echo DevDeployjob
 
 - stage: QADeploy
   jobs:
   - job: QADeployjob
     steps:
-    -bash: echo QADeployjob
+    - bash: echo QADeployjob
 
 - stage: ProdDeploy
   jobs:
   - job: ProdDeployjob
     steps:
-    -bash: echo QADeployjob
+    - bash: echo QADeployjob
