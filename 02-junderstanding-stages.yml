@@ -7,27 +7,27 @@ pool:
 stages:
 - stage: Build
   jobs:
-  -jobs: firstjob
+  - jobs: firstjob
     steps:
     -bash: echo Build firstjob
-  -jobs: secondjob
+  - jobs: secondjob
     steps:
     -bash: echo Build secondjob
 
 - stage: DevDeploy
   jobs:
-  -jobs: DevDeployjob
+  - jobs: DevDeployjob
     steps:
     -bash: echo DevDeployjob
 
 - stage: QADeploy
   jobs:
-  -jobs: QADeployjob
+  - jobs: QADeployjob
     steps:
     -bash: echo QADeployjob
 
 - stage: ProdDeploy
   jobs:
-  -jobs: ProdDeployjob
+  - jobs: ProdDeployjob
     steps:
     -bash: echo QADeployjob
