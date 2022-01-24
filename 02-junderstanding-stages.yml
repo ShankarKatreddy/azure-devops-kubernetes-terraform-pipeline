@@ -31,4 +31,3 @@ stages:
   -jobs: ProdDeployjob
     steps:
     -bash: echo QADeployjob
-
