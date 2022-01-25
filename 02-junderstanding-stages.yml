@@ -10,10 +10,11 @@ stages:
   - job: firstjob
     steps:
     - bash: echo Build firstjob
+    - bash: echo $(PipelineLevelVariable)
   - job: secondjob
     steps:
     - bash: echo Build secondjob
-    - bash: echo $(PipelineLevelVariable)
+
 
 - stage: DevDeploy
   variables:
