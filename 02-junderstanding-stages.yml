@@ -11,11 +11,18 @@ stages:
     steps:
     - bash: echo Build firstjob
     - bash: echo $(PipelineLevelVariable)
+    - bash: echo $(Build.BuildNumber)
+    - bash: echo $(Build.BuildId)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.SourceDirectory)
+    - bash: dir -R $(System.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
   - job: secondjob
     steps:
     - bash: echo Build secondjob
 
 
+#{
 - stage: DevDeploy
   variables:
     environment: Dev
@@ -44,3 +51,4 @@ stages:
   - job: ProdDeployjob
     steps:
     - bash: echo $(environment)Deployjob
+}
