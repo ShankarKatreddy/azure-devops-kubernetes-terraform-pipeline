@@ -13,30 +13,30 @@ pool:
 
 stages:
 - stage: Build
-  Jobs:
-  - Job: BuildJob
+  jobs:
+  - job: BuildJob
     steps:
     - bash: echo "Do the Build"
 
 - stage: DevDeploy
-  Jobs:
+  jobs:
   - deployment: DevDeployJob
     environment: Dev
     strategy:
       runOnce:
         deploy:
           steps:
-          - script: echo deploy to dev
+          - script: echo "deploy to dev"
 
 - stage: QADeploy
-  Jobs:
+  jobs:
   - deployment: DevDeployJob
     environment: Dev
     strategy:
       runOnce:
         deploy:
           steps:
-          - script: echo deploy to dev
+          - script: echo "deploy to dev"
 
 steps:
 - script: echo Running on $(operatingsystem)
