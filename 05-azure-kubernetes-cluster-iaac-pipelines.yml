@@ -32,5 +32,4 @@ steps:
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    environmentServiceName: 'azure-resorce-manager-service-connection'
     commandOptions: '-var client_id=$(client_id) -var client_secrect=$(client_secret) -var ssh_public_key=$(publickey.securefilepath)'
