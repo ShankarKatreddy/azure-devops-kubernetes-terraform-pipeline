@@ -23,6 +23,6 @@ steps:
     backendAzureRmResourceGroupName: 'terraform-backend-rg'
     backendAzureRmResourceGroupLocation: 'westeurope'
     backendAzureRmStorageAccountName: 'storageaccountshankarkatreddy'
-    backendAzureRmContainerName: 'storageaccountskcontainer'
+    backendAzureRmContainerName: 'storageaccskcontainer'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
     allowTelemetryCollection: true
