@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
 - script: echo K8s Terraform Azure
@@ -12,12 +12,13 @@ steps:
   name: publickey
   inputs:
     secureFile: 'azure_rsa.pub'
+    retryCount: '5'
 
 - task: TerraformCLI@0
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    #commandOptions: '-var client_id=$(client_id) -var client_secrect=$(client_secret) -var ssh_public_key=$(publickey.securefilepath)'
+    commandOptions: '-var client_id=$(client_id) -var client_secrect=$(client_secret) -var ssh_public_key=$(publickey.securefilepath)'
     backendType: 'azurerm'
     backendServiceArm: 'azure-resource-manager-service-connection'
     ensureBackend: true
@@ -26,11 +27,3 @@ steps:
     backendAzureRmStorageAccountName: 'storageacctbhanu'
     backendAzureRmContainerName: 'storageacctbhanucontainer'
     backendAzureRmKey: 'kubernetes-dev.tfstate'
-
-- task: TerraformCLI@0
-  inputs:
-    command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    environmentServiceName: 'azure-resource-manager-service-connection'
-    commandOptions: '-var client_id=$(client_id) -var client_secrect=$(client_secret) -var ssh_public_key=$(publickey.securefilepath)'
-    terraform force-unlock b4864e44-180a-736f-22af-21bc6b76bdff
